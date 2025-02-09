@@ -1,6 +1,6 @@
 
 
-# `stdin()`
+# `stdin()` function
 
 - Provides a handle to the standard input for the terminal
 - Examples
