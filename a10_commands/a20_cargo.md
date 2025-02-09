@@ -1,6 +1,0 @@
-# `cargo`
-
-```shell
-cargo --version
-```
-
