@@ -4,3 +4,12 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
+rand = "0.8.5"
+# ^ Is called as `Semantic versioning` or `SemVer`
+#   Is a shorthand for ^0.8.5
+#       - Which means any version that is atleast 0.8.5 but below 0.9.0
+#       - Any version greater than 0.9.0 or greater is not guaranteed to have same API
+
+[[bin]]
+name = "ownership_example"
+path = "src/a20_Terminologies/examples/ownership.rs"

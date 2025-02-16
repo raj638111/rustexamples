@@ -10,9 +10,8 @@ Available options,
 - Is used to convert a plain project use `cargo`
 - This creates `Cargo.toml` file for us
 
-# `build`
+# `cargo build`
 
-`cargo build`
 - Creates a debug build binary in /target/debug/<binary name>
 - Option
   - `cargo build --release`
@@ -20,13 +19,20 @@ Available options,
     - Why not use --release all the time? Build is slower compared to `cargo build`
     - Creates the release binary in `/target/release`
 
-# `run`
+# `cargo update`
 
-`cargo run`
+1. Ignores the `Cargo.lock` file, checks if there are any new versions (within the specific version range) of the dependencies, downloads that version and create a new `Cargo.lock` file
+
+# `cargo run`
+
 - This both build and run the executable
 
-# `check`
+# `cargo check`
 - Check code to make sure it compiles
 - ^ why needed? Much faster than compiling the code 
 
+# `cargo doc`
+
+`cargo doc --open`
+1. Builds documentation provided by all the dependencies locally and open it in the browser
 
