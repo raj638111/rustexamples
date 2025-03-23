@@ -1,6 +1,5 @@
 
 # `match` expression 101
-___
 
 1. `match` expression is made up of `arms`
 2. Each `arm` contains a pattern
@@ -17,3 +16,7 @@ match guess.cmp(&no) {
     }
 }
 ```
+
+# Match and Ownership
+
+[Ref](https://rust-book.cs.brown.edu/ch06-02-match.html#how-matches-interact-with-ownership)

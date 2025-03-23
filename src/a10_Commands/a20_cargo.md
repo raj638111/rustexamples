@@ -36,3 +36,5 @@ Available options,
 `cargo doc --open`
 1. Builds documentation provided by all the dependencies locally and open it in the browser
 
+# `cargo test`
+

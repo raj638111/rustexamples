@@ -121,3 +121,95 @@ For more information about this error, try `rustc --explain E0106`.
 error: could not compile `structs` (bin "structs") due to 2 previous errors
 
 ```
+
+# Methods (Aka `Associated Functions`)
+
+[Reference](https://rust-book.cs.brown.edu/ch05-03-method-syntax.html)
+
+1. Multiple `impl` blocks can be used
+
+```rust
+#[derive(Debug)]
+struct Rectangle {
+    width: u32,
+    height: u32,
+}
+
+impl Rectangle {
+    fn area(&self) -> u32 {
+        self.width * self.height
+    }
+}
+
+fn main() {
+    let rect1 = Rectangle {
+        width: 30,
+        height: 50,
+    };
+
+    println!(
+        "The area of the rectangle is {} square pixels.",
+        rect1.area()
+    );
+}
+```
+
+# Associated function without self (ie without instance)
+
+1. Example: `String::from(...)`
+
+```rust
+impl Rectangle {
+    // Here two self's are an alias for Rectangle type
+    //  First self is return type, second self is used to create an instance
+    fn square(size: u32) -> Self { 
+        Self {
+            width: size,
+            height: size,
+        }
+    }
+}
+fn main() {
+    let sq = Rectange::square(3);
+}
+```
+
+# Using `function call` syntax on struct methods
+
+[Ref](https://rust-book.cs.brown.edu/ch05-03-method-syntax.html#method-calls-are-syntactic-sugar-for-function-calls)
+
+```rust
+struct Rectangle {
+    width: u32,
+    height: u32,
+}
+
+impl Rectangle {
+    fn area(&self) -> u32 {
+       self.width * self.height
+     }
+
+    fn set_width(&mut self, width: u32) {
+        self.width = width;
+    }
+}
+
+fn main() {
+    let mut r = Rectangle { 
+        width: 1,
+        height: 2
+    };
+    let area1 = r.area();
+    let area2 = Rectangle::area(&r); // Function call syntax
+    assert_eq!(area1, area2);
+
+    r.set_width(2);
+    Rectangle::set_width(&mut r, 2);
+}
+```
+
+# Methods & Ownership
+
+[Ref](https://rust-book.cs.brown.edu/ch05-03-method-syntax.html#methods-and-ownership)
+
+1. Methods must be called on structs that have necessary ownership
